@@ -64,15 +64,6 @@ std::map<String, String> RGBShort = {
   {"G","GREEN"}
 };
 
-int findColorIndex(const char* color) {
-    for (int i = 0; i < numColorName; i++) {
-        if (strcmp(color, ColorName[i]) == 0) {
-            return i;
-        }
-    }
-    return -1; // if color not exists, return -1
-}
-
 //set Current ColorMode and Brightmode for global variables
 String ColorMode = "OFF";
 int BrightMode = 0;
@@ -82,6 +73,16 @@ int Color_B = 0;
 String currentColorType = "";
 String Color_Total;
 int Color_Each = 0; 
+
+
+int findColorIndex(const char* color) {
+    for (int i = 0; i < numColorName; i++) {
+        if (strcmp(color, ColorName[i]) == 0) {
+            return i;
+        }
+    }
+    return -1; // if color not exists, return -1
+}
 
 void setColorMap() {
   for (int i=0; i < numColorName; i++) {
@@ -133,8 +134,6 @@ void IOSetup() {  //Connects to Adafruit IO
   Serial.print(F("IO Status: "));
   Serial.println(io.statusText());
 }
-
-void handleColor_Each_http();
 
 void HTTPSetup() {  //Sets HTTP Server
   server.on("/", handleROOT); 
