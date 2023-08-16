@@ -70,7 +70,6 @@ int BrightMode = 0;
 int Color_R = 0;
 int Color_G = 0;
 int Color_B = 0;
-String currentColorType = "";
 String Color_Total;
 int Color_Each = 0; 
 
